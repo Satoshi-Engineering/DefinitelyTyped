@@ -45,17 +45,17 @@ export namespace Transaction {
     class UnspentOutput {
         static fromObject(o: object): UnspentOutput;
 
-        readonly address: Address;
+        readonly address?: Address;
         readonly txId: string;
         readonly outputIndex: number;
-        readonly script: Script;
+        readonly script: Script | string;
         readonly satoshis: number;
 
         constructor(data: object);
 
-        inspect(): string;
-        toObject(): this;
-        toString(): string;
+        inspect?(): string;
+        toObject?(): this;
+        toString?(): string;
     }
 
     class Output {
@@ -87,7 +87,8 @@ export class Transaction {
 
     constructor(serialized?: any);
 
-    from(utxos: Transaction.UnspentOutput[]): this;
+    setVersion(version: number): this;
+    from(utxos: Transaction.UnspentOutput[] | Transaction.UnspentOutput): this;
     to(address: Address[] | Address | string, amount: number): this;
     change(address: Address | string): this;
     fee(amount: number): this;
@@ -111,6 +112,7 @@ export class Transaction {
     enableRBF(): this;
     isRBF(): boolean;
 
+    toObject(): object;
     inspect(): string;
     serialize(): string;
 }
@@ -142,7 +144,7 @@ export class PrivateKey {
 }
 
 export class PublicKey {
-    constructor(source: string);
+    constructor(source: string | PublicKey | PrivateKey | Buffer);
 
     static fromPrivateKey(privateKey: PrivateKey): PublicKey;
 
