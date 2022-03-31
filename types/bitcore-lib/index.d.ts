@@ -126,7 +126,7 @@ export class Transaction {
     fee(amount: number): this;
     feePerKb(amount: number): this;
     feePerByte(amount: number): this;
-    sign(privateKey: PrivateKey | string): this;
+    sign(privateKey: PrivateKey | string, sigtype?: number, signingMethod?: 'ecdsa' | 'schnorr', sigid?: number, forceSignWitness?: boolean): this;
     applySignature(sig: crypto.Signature): this;
     addInput(input: Transaction.Input): this;
     addOutput(output: Transaction.Output): this;
