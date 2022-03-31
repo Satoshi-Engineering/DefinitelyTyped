@@ -1,0 +1,6 @@
+{
+  "name": "bitcore-lib",
+  "version": "8.25.25",
+  "main": "index.d.ts",
+  "license": "MIT"
+}
