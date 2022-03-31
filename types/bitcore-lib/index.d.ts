@@ -119,6 +119,7 @@ export class Transaction {
     constructor(serialized?: any);
 
     setVersion(version: number): this;
+    setBcdGarbage(bcdGarbage: Buffer): void;
     from(utxos: Transaction.UnspentOutput[] | Transaction.UnspentOutput): this;
     to(address: Address[] | Address | string, amount: number): this;
     change(address: Address | string): this;
