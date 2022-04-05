@@ -7,6 +7,37 @@
 
 /// <reference types="node" />
 
+export const version: string;
+export function versionGuard(version: string): Error | void;
+
+export const errors: any;
+export const MerkleBlock: any;
+export const BlockHeader: any;
+export const Opcode: any;
+export const URI: any;
+
+export namespace encoding {
+    const Base58: any;
+    const Base58Check: any;
+    const BufferReader: any;
+    const BufferWriter: any;
+    const Varint: any;
+}
+
+export namespace util {
+    const buffer: any;
+    const js: any;
+    const preconditions: any;
+}
+
+export namespace deps {
+    const bnjs: any;
+    const bs58: any;
+    const Buffer: BufferConstructor;
+    const elliptic: any;
+    const _: any;
+}
+
 export namespace crypto {
     class BN {}
 
