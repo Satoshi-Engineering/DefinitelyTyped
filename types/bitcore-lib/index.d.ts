@@ -116,7 +116,7 @@ export class Transaction {
     readonly hash: string;
     nid: string;
 
-    constructor(serialized?: any);
+    constructor(serialized?: any, opts?: any, bcdGarbage?: Buffer);
 
     setVersion(version: number): this;
     setBcdGarbage(bcdGarbage: Buffer): void;
