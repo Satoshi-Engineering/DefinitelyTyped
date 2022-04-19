@@ -172,7 +172,7 @@ export class PrivateKey {
     toJSON(): object;
     toWIF(): string;
 
-    constructor(key?: string, network?: Networks.Network);
+    constructor(key?: string, network?: string | Networks.Network);
 }
 
 export class PublicKey {
